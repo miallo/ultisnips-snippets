@@ -1,0 +1,83 @@
+# React & JSX
+
+snippet fn "function" b
+const $1 = ($2) => {
+    $3${4:
+    return $5}
+}
+endsnippet
+
+snippet us "useState" b
+const [${1:state}, set${1/\w+\s*/\u$0/}] = useState(${2:null});
+endsnippet
+
+snippet ue "useEffect" b
+useEffect(() => {
+	$1
+	${2:return () => {
+		$3
+	}}
+};
+endsnippet
+
+snippet uea "useEffect for asynchronous function calls" b
+useEffect(() => {
+    let mounted = true;
+	$1
+	if (mounted) {
+		$2
+	}
+	return () => {
+		mounted = false;${3:
+		$4}
+	}
+};
+endsnippet
+
+snippet rnh "React Hook Component" b
+import React,  { ${3:useState} } from 'react';
+import { View, StyleSheet } from 'react-native'
+
+const ${1:`!v expand('%:t:r')`} = (${2:{ navigation }}) => {
+    ${3:const [${4:state}, set${4/\w+\s*/\u$0/}] = use${5:State}(${6:null})}
+
+    return (
+            $7
+    );
+};
+
+export default $1;
+endsnippet
+
+snippet rncc "React Class Component" b
+import React, { Component} from 'react';
+import PropTypes from 'prop-types';
+import { View, StyleSheet } from 'react-native'
+
+class ${1:`!v expand('%:t:r')`} extends Component {
+    static propTypes = {
+        children: PropTypes.node,
+        className: PropTypes.string,
+    };
+
+    constructor(props) {
+        super(props);
+    }
+
+    render() {
+        return (
+            <View style={styles.container}>
+                $3
+            </View>
+        );
+    }
+}
+
+const styles = StyleSheet.create({
+    container: {
+        $4
+    }
+})
+
+export default $1;
+endsnippet
