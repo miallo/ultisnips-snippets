@@ -15,13 +15,17 @@ snippet us "useState" b
 const [${1:state}, set${1/\w+\s*/\u$0/}] = useState(${2:null});
 endsnippet
 
+snippet uc "useCustomHook" b
+const {${1:getSetting}} = use$2(${3:null});
+endsnippet
+
 snippet ue "useEffect" b
 useEffect(() => {
     $1
     ${2:return () => {
         $3
     }}
-};
+}${4:, [$5]});
 endsnippet
 
 snippet uea "useEffect for asynchronous function calls" b
@@ -35,7 +39,7 @@ useEffect(() => {
         mounted = false;${3:
         $4}
     }
-};
+}${5:, [$6]});
 endsnippet
 
 snippet rnh "React Hook Component" b
