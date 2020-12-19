@@ -1,0 +1,40 @@
+snippet #! "Shebang" b
+#!/usr/bin/env zsh
+
+$0
+endsnippet
+
+snippet fun "function definition" b
+${1:function_name}() {
+    ${2:function_body}
+}$0
+endsnippet
+
+snippet if "if statement" b
+if [ ${1} ]; then
+    ${2}
+fi$0
+endsnippet
+
+snippet fori "numeric for loop" b
+for (( ${1:i} = 0; $1 < ${2:count}; $1++ )); do
+    ${3}
+done$0
+endsnippet
+
+snippet forf "for-file-in loop" b
+for ${1:file} in ${2:.} ; do
+    ${3}
+done$0
+endsnippet
+
+snippet case "case/switch statement" b
+case ${1:word} in
+	${2:pattern})
+		${3}
+		;;
+	${4}
+	${5:*) $6 ;;}
+esac
+endsnippet
+
