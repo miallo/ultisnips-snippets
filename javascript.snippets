@@ -1,5 +1,30 @@
 # React & JSX
 
+snippet co "const" b
+const $1 = $2
+endsnippet
+
+snippet cl "console.log" b
+console.log($1)$0
+endsnippet
+
+
+snippet if "if statement" b
+if ($1) {
+	$2
+}${3: else {
+	$4
+}}
+$5
+endsnippet
+
+snippet ta "tag" b
+<$1>
+	$2
+</$1>
+endsnippet
+
+
 snippet fn "function" b
 const $1 = ($2) => {
     $3${4:
